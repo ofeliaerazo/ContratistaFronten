@@ -1,0 +1,28 @@
+<section>
+    <div class="formulario-contratos">
+        <h4 class="register-formTitle">Subir Imagen Prueba</h4>
+        <div class="panel-body2">
+
+            <div layout="column" ng-cloak class="md-inline-form">
+                <md-content layout-padding>
+                    <form name="form" ng-submit="vm.create(form)">
+                        <md-dialog-content>
+                            <label>
+                                Seleccione un imágen
+                            </label>
+                            <input type="file" class="button" ngf-select ng-model="vm.file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">
+                            <!--div class="button" ngf-select ng-model="vm.file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">Seleccionar Imágen</div-->
+                        </md-dialog-content>
+                        <section>
+                            <button type="submit">Subir Imágen</button>
+                        </section>
+
+                    </form>
+                </md-content>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</section>

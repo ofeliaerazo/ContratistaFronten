@@ -1,0 +1,10 @@
+'use strict';
+
+angular.module('contratista2017App')
+  .config(function ($stateProvider) {
+    $stateProvider
+      .state('contratos-update', {
+        url: '/contratos-update',
+        template: '<contratos-update></contratos-update>'
+      });
+  });

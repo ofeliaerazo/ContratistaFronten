@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table-bordered">
+        <thead>
+          <tr>
+            <th>NumeroDocumento</th>
+            <th>Nombre Completo</th>
+            <th> Sexo</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Direccion</th>
+            <th>Correo personal</th>
+            <th>Correo Institucional</th>
+            <th>Telefono</th>
+            <th>Celular</th>
+            <th>Ciudad</th>
+            <th>eps</th>
+            <th>pension</th>
+            <th>ARL</th>
+            <th>acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in vm.usuario">
+            <th>{{item.numDocumento}}</th>
+            <th>{{item.nombresCompletos}}</th>
+            <th>{{item.sexo}}</th>
+            <th>{{item.fechaNacimiento}}</th>
+            <th>{{item.direccion}}</th>
+            <th>{{item.emailPersonal}}</th>
+            <th>{{item.emailInstitucional}}</th>
+            <th>{{item.telefonoFijo}}</th>
+            <th>{{item.celular}}</th>
+            <th>{{item.ciudadesId.nombre}}</th>
+            <th>{{item.epsId.nombre}}</th>
+            <th>{{item.pensionId.nombre}}</th>
+            <th>{{item.arlId.id}}</th>
+            <th><a class="btn btn.primary" ui-sref="usuarios-update({idUsuarios:item.id})">Editar</a></th>
+            <th></th>
+          </tr>
+
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+</div>
+<a ui-sref="usuarios-create">Nuevo usuario</a>
+
+
+
+
+<!-- section>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Filtrar</h3>
+      <input type="text" class="form-control" ng-model="vm.filtro">
+    </div>
+    <div class="panel-body">
+
+      <md-table-container>
+      <table md-table>
+        <thead md-head>
+          <tr md-row>
+            <th md.column>Nombres  </th>
+            <th md.column>Cedula  </th>
+            <th md.column>Correo  </th>
+            <th md.column>Celular  </th>
+            <th md.column>Accion  </th>
+          </tr>
+        </thead>
+      </table>
+      <table>
+        <tbody md-body>
+          <tr md-row ng-repeat="item in vm.usuarios |
+          limitTo: vm.query.limit:(vm.query.page -1)">
+              ng-click="vm.goUpdateUser(item.id)">
+              Editar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </md-table-container>
+    </div>
+  </div>
+
+
+<md-table-pagination
+  md-limit="vm.query.limit"
+  md-limit-options="[5, 10 15]"
+  md-page="vm.query.page"
+  md-total="{{vm.usuarios.length}}">
+</md-table-pagination>
+</section-->
+
+
+<upload-file></upload-file>
