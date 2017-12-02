@@ -1,3 +1,22 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <form class="form-inline">
+      <div layout-gt-xs="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <span flex></span>
+        <md-button type="button" ng-click="vm.clearQuery()" class="md-raised md-primary md-hue-2" title="Limpiar filtros" aria-label="Limpiar filtro">
+          <i class="fa fa-eraser" aria-hidden="true"></i>
+          Limpiar Filtros
+        </md-button>
+        <md-button type="button" ng-click="vm.exportExcel()" class="md-raised md-primary md-hue-2" title="Exportar Excel" aria-label="Exportar Excel">
+          <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+          Usuarios
+        </md-button>
+      </div>
+    </form>
+    <h3 class="panel-tittle">filtrar</h3>
+    <input type="text" class="form-control" ng-model="vm.filtro"name="" value="">
+  </div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -47,7 +66,7 @@
   </div>
 </div>
 <a ui-sref="usuarios-create">Nuevo usuario</a>
-
+</div>
 
 
 

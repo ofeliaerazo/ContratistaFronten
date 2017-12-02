@@ -39,7 +39,7 @@
             }, (evt) => {
                 var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                 console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-                this.navegateParams.setData("reload", true);
+
                 location.reload();
             });
         }

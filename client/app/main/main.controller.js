@@ -19,7 +19,8 @@ class MainController {
 angular.module('contratista2017App')
   .component('main', {
     templateUrl: 'app/main/main.html',
-    controller: MainController
+    controller: MainController,
+    controllerAs: 'vm'
   });
 
 })();

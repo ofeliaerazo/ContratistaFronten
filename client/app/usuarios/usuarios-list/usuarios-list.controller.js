@@ -2,10 +2,14 @@
 (function(){
 
 class UsuariosListComponent {
-  constructor(usuariosService, NavegateParams, $state) {
+  constructor(usuariosService, $state, tipoDocumentoService, FileSaver) {
   this.usuariosService = usuariosService;
   //this.NavegateParams = NavegateParams;
+  this.tipoDocumentoService = tipoDocumentoService;
+  this.usuariosLength = 0;
+  this.user={};
   this.$state = $state;
+  this.FileSaver = FileSaver;
 
   this.query = {
     limit:5,

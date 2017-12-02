@@ -10,7 +10,7 @@ class NavbarController {
 
   isCollapsed = true;
   //end-non-standard
-  i
+  
   constructor() {
     }
 }

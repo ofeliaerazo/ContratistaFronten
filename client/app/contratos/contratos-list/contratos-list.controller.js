@@ -2,8 +2,11 @@
 (function(){
 
 class ContratosListComponent {
-  constructor() {
-    this.message = 'Hello';
+  constructor(contratosService) {
+    this.contratosService = contratosService;
+  }
+  $onInit(){
+    console.log(this.contratosService.query());
   }
 }
 

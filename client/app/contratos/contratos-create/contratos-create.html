@@ -1,1 +1,15 @@
-<div>This is the contratos-create view.</div>
+<div class="">
+  <form name="form" ng-submit="vm.creteContrato(form)">
+                       <md-dialog-content>
+                           <label>
+                               Seleccione un imágen
+                           </label>
+                           <input type="file" class="button" ngf-select ng-model="vm.file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">
+                           <!--div class="button" ngf-select ng-model="vm.file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">Seleccionar Imágen</div-->
+                       </md-dialog-content>
+                       <section>
+                           <button type="submit">Subir Imágen</button>
+                       </section>
+
+                   </form>
+</div>
