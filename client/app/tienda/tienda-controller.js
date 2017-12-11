@@ -2,11 +2,11 @@
 (function(){
 
 class TiendaComponent{
-
-
-    contructor(){
-      console-log("hola tienda");
+    constructor(){
+      console.log("hola tienda");
+      this.carrito =[];
     }
+
     $onInit(){
 
       this.productos = [
@@ -16,38 +16,64 @@ class TiendaComponent{
         marca:'zony',
         imagen:'../assets/images/tv.jpg',
         valor: 30000000,
-        descuento: 5
+        descuento: 5,
+        stock:4
       },
       {
-        id:1,
+        id:2,
         nombre:'tv zony',
         marca:'zony',
         imagen:'../assets/images/tv.jpg',
         valor: 25000000,
-        descuento: 5
+        descuento: 5,
+        stock:4
       },
       {
-        id:1,
+        id:3,
         nombre:'tv lg',
         marca:'ogl',
         imagen:'../assets/images/tv.jpg',
         valor: 20000000,
-        descuento: 5
+        descuento: 5,
+        stock:4
       }
 
       ];
-      this.carrito =[];
+      
     }
+
     agregarProducto(item){
+      console.log(this.carrito,item);
       this.carrito.push(item);
-      for(var i =0; i < this.carrito.length; i++){
-        this.suma = this.carrito[i].valor;
-      }
-
-      this.totalPago = this.suma;
+      /*for(i=0; i<this.producto.length; i++){
+        if(this.producto[i].id == this.comprar.idProducto.id ){
+          this.itemProducto =this.producto[i];
+        }
+      }*/
     }
 
-  }
+    comprarProducto(){
+      console.log(this.comprar);
+      this.productos.save(this.comprar).$promise
+      .then(response =>{
+        console.log("guardar comprar", response);
+        this.comprar = {
+          idProducto:{
+            id:null
+          }
+        };
+
+      })
+      .catch(err => console.error(err));
+    }
+
+
+     selecProducto(item){
+      this.compra.idProducto.id = item.id;
+      this.selecProducto = item;
+     }
+     }
+   
 
   angular.module('contratista2017App')
     .component('tienda', {

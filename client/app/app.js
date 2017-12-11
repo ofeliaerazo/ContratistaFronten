@@ -18,7 +18,7 @@ angular.module('contratista2017App', [
      'ngFileUpload'
 
 ])
-  .constant("API", "http://localhost:8080/Contratista2017/api")
+  .constant("API", "http://localhost:8080/Contratista2017")
 
   //config login
   .config(function($authProvider,API) {

@@ -44,7 +44,7 @@
             });
         }
     }
-    angular.module('startUpApp')
+    angular.module('contratista2017App')
     .component('uploadFile', {
     templateUrl: 'app/upload-file/upload-file/upload-file.html',
     controller: MainController,

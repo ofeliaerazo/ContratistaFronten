@@ -6,6 +6,8 @@ class NavbarController {
     'title': 'Home',
     'state': 'main'
   }
+  
+
 ];
 
   isCollapsed = true;

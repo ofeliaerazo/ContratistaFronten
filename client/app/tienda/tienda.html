@@ -1,31 +1,37 @@
-<div class="container">
+<div class="container" responsive-center>
   <h2>Tienda</h2>
   <div class="row">
+      <div class="col-md-8">
 
-    <div class="col-md-10" ng-repeat="item in vm.productos">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, s
-      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-	       <div href="#" class="thumbnail">
-             <!--img src="../assets/images/tv.jpg" alt=""-->
-             <img src="{{item.imagen}}" alt="" />
-             <div class="caption">
+        <div class="col-xs-12 col-sm-4 col-md-3" ng-repeat="item in vm.productos">
+          <div href="#" class="thumbnail">
+             <img src="../assets/images/tv.jpg" alt="">
+             
+            <div class="caption">
                <h3>{{item.marca}}</h3>
                <h3>{{item.valor}}</h3>
-               <a href="#" class="btn btn-success" ng-click="vm.agregarProducto()">AñadirCarrito</a>
-               </div>
-               </div>
-             </div>
-	      </div>
-      <div class="col-md-2">
-        <h2>totalPago</h2>
-        <form class="" >
+               <button class="btn btn-success" ng-click="vm.agregarProducto(item)">AñadirCarrito</button>
+            </div>
+          </div>
+        </div-->
+      </div>
+       
+      
+	    
+    <div class="col-md-4">
+        <h2>formulario pago</h2>
+        <form class="" ng-repeat="item in vm.carrito" >                                       
           <div class="form-group">
 
-            <p>productol: {{vm.nombre}}</p>
+            <p>productol: {{item.nombre}}</p>
+            <p>Precio: {{item.valor}}</p>
+
+            
             <p>descuento: {{vm.descuento}}</p>
-            <p>totalPago: {{vm.totalPago}}</p>
+            <p>totalPago: {{vm.compra.totalPago}}</p>
 
           </div>
+          <button class="btn btn-success" type="sumbit">comprar</button>
 
         </form>
     </div>

@@ -16,6 +16,6 @@
     }
 
     angular
-        .module('startUpApp')
+        .module('contratista2017App')
         .config(config);
 })();
