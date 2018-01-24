@@ -5,7 +5,6 @@ angular.module('contratista2017App')
     $stateProvider
       .state('usuarios-update', {
         url: '/usuarios-update/:idUsuario',
-        parent:'admin',
         template: '<usuarios-update></usuarios-update>'
       });
   });

@@ -14,7 +14,7 @@
       </div>
     </form>
     <h3 class="panel-tittle">filtrar</h3>
-    <input type="text" class="form-control" ng-model="vm.filtro"name="" value="">
+    <input type="text" class="form-control" ng-model="vm.filtro"name="" value="" ng-change="vm.filtrar()">
   </div>
 
 <div class="container">
@@ -40,7 +40,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="item in vm.usuario">
+          <tr ng-repeat="item in vm.usuario | filter:vm.filtro">
             <th>{{item.numDocumento}}</th>
             <th>{{item.nombresCompletos}}</th>
             <th>{{item.sexo}}</th>

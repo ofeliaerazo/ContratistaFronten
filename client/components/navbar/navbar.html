@@ -13,6 +13,13 @@
                 </button>
                   <a href="" class="navbar-brand"> Contratistas</a>
               </div>
+              <div uib-collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+                <ul class="nav navbar-nav">
+                  <li ng-repeat="item in nav.menu" ui-sref-active="active">
+                      <a ui-sref="{{item.state}}">{{item.title}}</a>
+                  </li>
+                </ul>
+              </div>
               <!--div class="collapsed navbar-collapse  breadcrumb" id="navbar-1"> 
                 <ul class="nav navbar-nav">
                   <li class="breadcrumb-item"><a href="{{item.state}}">Home</a></li>
