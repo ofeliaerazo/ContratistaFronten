@@ -26,7 +26,12 @@
         .catch(err => {
           console.log('error', err)
         })
+
     }
+    clearQuery(){
+
+    }
+    exportExcel(){}
   }
 
 

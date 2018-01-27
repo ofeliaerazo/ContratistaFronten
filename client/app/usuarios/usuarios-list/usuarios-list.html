@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-primary">
   <div class="panel-heading">
     <form class="form-inline">
       <div layout-gt-xs="row" layout-sm="column" layout-align="center center" layout-wrap>
@@ -13,61 +13,74 @@
         </md-button>
       </div>
     </form>
-    <h3 class="panel-tittle">filtrar</h3>
+    <h3 class="panel-tittle">Filtrar</h3>
     <input type="text" class="form-control" ng-model="vm.filtro"name="" value="" ng-change="vm.filtrar()">
   </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table-bordered">
-        <thead>
-          <tr>
-            <th>NumeroDocumento</th>
-            <th>Nombre Completo</th>
-            <th> Sexo</th>
-            <th>Fecha de Nacimiento</th>
-            <th>Direccion</th>
-            <th>Correo personal</th>
-            <th>Correo Institucional</th>
-            <th>Telefono</th>
-            <th>Celular</th>
-            <th>Ciudad</th>
-            <th>eps</th>
-            <th>pension</th>
-            <th>ARL</th>
-            <th>acción</th>
+<!-- MD DATA TABLE -->
+
+<md-table-container>
+  <table md-table class="table-bordered">
+    
+       <thead md-head>
+          <tr md-row>
+            <th md-column>NumeroDocumento</th>
+            <th md-column>Nombre Completo</th>
+            <th md-column> Sexo</th>
+            <th md-column>Fecha de Nacimiento</th>
+            <th md-column>Direccion</th>
+            <th md-column>Correo personal</th>
+            <th md-column>Correo Institucional</th>
+            <th md-column>Telefono</th>
+            <th md-column>Celular</th>
+            <th md-column>Ciudad</th>
+            <th md-column>eps</th>
+            <th md-column>pension</th>
+            <th md-column>ARL</th>
+            <th md-column>acción</th>
           </tr>
         </thead>
-        <tbody>
-          <tr ng-repeat="item in vm.usuario | filter:vm.filtro">
-            <th>{{item.numDocumento}}</th>
-            <th>{{item.nombresCompletos}}</th>
-            <th>{{item.sexo}}</th>
-            <th>{{item.fechaNacimiento}}</th>
-            <th>{{item.direccion}}</th>
-            <th>{{item.emailPersonal}}</th>
-            <th>{{item.emailInstitucional}}</th>
-            <th>{{item.telefonoFijo}}</th>
-            <th>{{item.celular}}</th>
-            <th>{{item.ciudadesId.nombre}}</th>
-            <th>{{item.epsId.nombre}}</th>
-            <th>{{item.pensionId.nombre}}</th>
-            <th>{{item.arlId.id}}</th>
-            <th><a class="btn btn.primary" ui-sref="usuarios-update({idUsuarios:item.id})">Editar</a></th>
+        <tbody md-body>
+          <tr  md-row ng-repeat="item in vm.usuario | filter: vm.filtro | limitTo: vm.query.limit: (vm.query.page -1) * vm.query.limit">
+            <th md-cell >{{item.numDocumento}}</th>
+            <th md-cell >{{item.nombresCompletos}}</th>
+            <th md-cell >{{item.sexo}}</th>
+            <th md-cell >{{item.fechaNacimiento}}</th>
+            <th md-cell >{{item.direccion}}</th>
+            <th md-cell >{{item.emailPersonal}}</th>
+            <th md-cell >{{item.emailInstitucional}}</th>
+            <th md-cell >{{item.telefonoFijo}}</th>
+            <th md-cell >{{item.celular}}</th>
+            <th md-cell >{{item.ciudadesId.nombre}}</th>
+            <th md-cell >{{item.epsId.nombre}}</th>
+            <th md-cell >{{item.pensionId.nombre}}</th>
+            <th md-cell >{{item.arlId.id}}</th>
+            <th md-cell ><a class="btn btn.primary" ui-sref="usuarios-update({idUsuarios:item.id})">Editar</a></th>
             <th></th>
           </tr>
 
         </tbody>
 
       </table>
-    </div>
+    </nd-table-container>
 
   </div>
 </div>
 <a ui-sref="usuarios-create">Nuevo usuario</a>
+<md-table-pagination
+  md-limit="vm.query.limit"
+  md-limit-options="[5, 10, 20]"
+  md-page="vm.query.page"
+  md-total="{{vm.usuario.length}}">
+
+</md-table-pagination>
+ </div>
+  </div>
+<!-- /MD DATA TABLE -->
 </div>
 
+
+<upload-file></upload-file>
 
 
 <!-- section>
@@ -112,6 +125,3 @@
   md-total="{{vm.usuarios.length}}">
 </md-table-pagination>
 </section-->
-
-
-<upload-file></upload-file>

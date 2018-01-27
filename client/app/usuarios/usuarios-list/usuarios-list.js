@@ -5,6 +5,8 @@ angular.module('contratista2017App')
     $stateProvider
       .state('usuarios-list', {
         url: '/usuarios-list',
+        authenticate: true,
+        parent:'admin',
         template: '<usuarios-list></usuarios-list>'
 
 

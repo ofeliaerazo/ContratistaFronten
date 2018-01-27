@@ -17,6 +17,12 @@
       this.epsService = epsService;
       this.pensionService = pensionService;
       this.$state = $state;
+      this.usuario   = {
+        numDocumento:null,
+        ciudad: {
+          id: null
+        }
+      };
 
     }
     $onInit() {
