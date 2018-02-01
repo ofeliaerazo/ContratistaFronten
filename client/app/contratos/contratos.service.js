@@ -2,7 +2,7 @@
 
 
 function contratosService($resource, API) {
-  return $resource(API+"/contratos/:id",{
+  return $resource(API+"/api/contratos/:id",{
     id:'@id'
   },{
     update:{

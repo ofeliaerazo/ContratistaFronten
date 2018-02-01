@@ -1,6 +1,6 @@
 'use strict';
 
-function authService($auth, $state, localStorageService, $mdDialog){
+function authService($auth, $state, usuariosService,localStorageService, $mdDialog){
 
 var Auth = {
   login: login,
@@ -12,7 +12,10 @@ var Auth = {
   userlog: userlog,
   //alluser: alluser,
   getRoles: getRoles,
-  getIdUser: getIdUser
+  getIdUser: getIdUser,
+  //idUsuario: idUsuario,
+  //datosUsuario: datosUsuario,
+  //getImagenPerfil:getImagenPerfil
 };
 
 function login(user, collback) {
@@ -130,6 +133,6 @@ function login(user, collback) {
   return Auth;
 }
 
-authService.$inject = ['$auth', '$state','localStorageService','$mdDialog'];
+authService.$inject = ['$auth', '$state','usuariosService', 'localStorageService','$mdDialog'];
 angular.module('contratista2017App')
   .factory('authService', authService);

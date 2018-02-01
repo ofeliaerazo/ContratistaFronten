@@ -13,3 +13,13 @@
 
                    </form>
 </div>
+
+
+
+
+<div class="form-group">
+          <label for="">Contratos</label>
+          <select class="form-control" ng-model="vm.contratos.tiposContratoId.id" >
+            <option ng-value="item.id" ng-repeat = "item in vm.tipoContrato">{{item.tiposContratoId.descripcion}} </option>
+          </select>
+        </div>

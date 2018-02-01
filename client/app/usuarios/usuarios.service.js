@@ -13,3 +13,5 @@ function usuariosService($resource,API) {
 usuariosService.$inject=['$resource', 'API'];
 angular.module('contratista2017App')
   .factory('usuariosService', usuariosService);
+
+

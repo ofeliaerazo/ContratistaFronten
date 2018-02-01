@@ -8,7 +8,6 @@
       ciudadesService,
       epsService,
       pensionService,
-      supervisorService,
       $state) {
       this.usuariosService = usuariosService;
       this.tipoDocumentoService = tipoDocumentoService;
@@ -17,12 +16,12 @@
       this.epsService = epsService;
       this.pensionService = pensionService;
       this.$state = $state;
-      this.usuario   = {
-        numDocumento:null,
-        ciudad: {
-          id: null
-        }
-      };
+      //this.usuario   = {
+        //numDocumento:null,
+        //ciudad: {
+          //id: null
+        //}
+      //};
 
     }
     $onInit() {

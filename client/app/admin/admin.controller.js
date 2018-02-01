@@ -11,7 +11,7 @@ angular.module('contratista2017App')
   .component('admin', {
     templateUrl: 'app/admin/admin.html',
     controller: AdminComponent, 
-    controllerAs: 'vm'
+    controllerAs: 'vm'//'adminCtrl'
   });
 
 })();

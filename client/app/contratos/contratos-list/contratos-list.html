@@ -1,1 +1,77 @@
-<div>This is the contratos-list view.</div>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-tittle">Filtrar</h3>
+    <input type="text" class="form-control" ng-model="vm.filtro"name="" value="" ng-change="vm.filtrar()">
+  </div>
+
+<!-- MD DATA TABLE -->
+
+<md-table-container>
+  <table md-table class="table-bordered">
+    
+       <thead md-head>
+          <tr md-row>
+            <th md-column>Numero Contrato</th>
+            <th md-column>Fecha suscripcion</th>
+            <th md-column> Fecha inicio</th>
+            <th md-column>Fecha final</th>
+            <th md-column>valor contrato</th>
+            <th md-column>Fecha terminacion adicional</th>
+            <th md-column>Valor adiccion</th>
+            <th md-column>Tipo de contrato</th>
+            <th md-column>objeto de contrato</th>
+            <th md-column>Crp</th>
+            <th md-column>contratista</th>
+            <th md-column>supervisor</th>
+            <th md-column>estado del contrato</th>
+            <th md-column>Archivo adjunto</th>
+            <th md-column>acción</th>
+          </tr>
+        </thead>
+        <tbody md-body>
+          <tr  md-row ng-repeat="item in vm.contrato | filter: vm.filtro | limitTo: vm.query.limit: (vm.query.page -1) * vm.query.limit">
+            <th md-cell >{{item.numeroContrato}}</th>
+            <th md-cell >{{item.fechaSuscripcion}}</th>
+            <th md-cell >{{item.fechaInicio}}</th>
+            <th md-cell >{{item.fechaFinal}}</th>
+            <th md-cell >{{item.valorContrato}}</th>
+            <th md-cell >{{item.fechaTerminacionAdicional}}</th>
+            <th md-cell >{{item.valorAdicion}}</th>
+            <th md-cell >{{item.tiposContratoId.descripcion}}</th>
+            <th md-cell >{{item.objetoContratoId.descripcion}}</th>
+            <th md-cell >{{item.crpId.id}}</th>
+            <th md-cell >{{item.contratistaId.nombresCompletos}}</th>
+            <th md-cell >{{item.supervisorId.nombresCompletos}}</th>
+            <th md-cell >{{item.estadoContrato}}</th>
+            <th md-cell >{{item.archivoAdjunto}}</th>
+
+            <th md-cell ><a class="btn btn.primary" ui-sref="contratos-update({idContratos:item.id})">Editar</a></th>
+            
+            <th><md-switch class="md-primary" md-no-ink aria-label="Switch No Ink" ng-model="data.cb5">
+   			 Switch
+  				</md-switch></th>
+            
+          </tr>
+
+        </tbody>
+
+      </table>
+    </nd-table-container>
+
+  </div>
+</div>
+<a ui-sref="contratos-create">Nuevo Contrato</a>
+<md-table-pagination
+  md-limit="vm.query.limit"
+  md-limit-options="[5, 10, 20]"
+  md-page="vm.query.page"
+  md-total="{{vm.contrato.length}}">
+
+</md-table-pagination>
+ </div>
+  </div>
+<!-- /MD DATA TABLE -->
+</div>
+
+
+<upload-file></upload-file>

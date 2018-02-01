@@ -14,7 +14,7 @@ angular.module('contratista2017App', [
      'ngFileSaver',
      'ngMaterial',
      'LocalStorageModule',
-     'md.data.table',
+     'md.data.table',//libreria para ui-view-interfaz administrador
      'ngFileUpload'
 
 ])

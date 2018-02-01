@@ -55,6 +55,9 @@
             <th md-cell >{{item.epsId.nombre}}</th>
             <th md-cell >{{item.pensionId.nombre}}</th>
             <th md-cell >{{item.arlId.id}}</th>
+            <th><md-switch class="md-primary" md-no-ink aria-label="Switch No Ink" ng-model="data.cb5">
+    Switch
+  </md-switch></th>
             <th md-cell ><a class="btn btn.primary" ui-sref="usuarios-update({idUsuarios:item.id})">Editar</a></th>
             <th></th>
           </tr>

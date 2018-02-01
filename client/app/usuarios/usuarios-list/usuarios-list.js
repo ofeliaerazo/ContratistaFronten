@@ -6,7 +6,7 @@ angular.module('contratista2017App')
       .state('usuarios-list', {
         url: '/usuarios-list',
         authenticate: true,
-        parent:'admin',
+        //parent:'admin',
         template: '<usuarios-list></usuarios-list>'
 
 
