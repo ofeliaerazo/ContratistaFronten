@@ -18,6 +18,14 @@
                   <li ng-repeat="item in nav.menu" ui-sref-active="active">
                       <a ui-sref="{{item.state}}">{{item.title}}</a>
                   </li>
+                  <!--li ui-sref-active="active"> <a ui-sref="usuarios-list">Usuarios</a></li-->
+                  <li > <a href="usuarios-list">Usuarios</a></li>
+
+                  <li > <a href="usuarios-create">Nuevo usuario</a></li>
+                  <!--li ng-if="vm.AuthService.isAdmin()"> <a ui-sref="usuarios-create" >Nuevo usuario</a></li-->
+                  
+                  <li > <a href="login">Iniciar</a></li>
+                  <li> <a ng-click="vm.AuthService.logout()" href="#">Salir</a></li>
                 </ul>
               </div>
               <!--div class="collapsed navbar-collapse  breadcrumb" id="navbar-1"> 

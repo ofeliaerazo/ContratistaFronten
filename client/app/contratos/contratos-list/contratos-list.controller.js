@@ -21,7 +21,7 @@ class ContratosListComponent {
     this.contratosService.query().$promise
     .then(response =>{
       console.log('LISTADO DE CONTRATOS',response);
-      this.contrato = response;
+      this.contratos = response;
     })
     .catch(err =>{
       console.log('ERROR AL LISTAR CONTRATOS', err);

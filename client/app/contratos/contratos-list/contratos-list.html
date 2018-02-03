@@ -29,7 +29,7 @@
           </tr>
         </thead>
         <tbody md-body>
-          <tr  md-row ng-repeat="item in vm.contrato | filter: vm.filtro | limitTo: vm.query.limit: (vm.query.page -1) * vm.query.limit">
+          <tr  md-row ng-repeat="item in vm.contratos | filter: vm.filtro | limitTo: vm.query.limit: (vm.query.page -1) * vm.query.limit">
             <th md-cell >{{item.numeroContrato}}</th>
             <th md-cell >{{item.fechaSuscripcion}}</th>
             <th md-cell >{{item.fechaInicio}}</th>
@@ -65,7 +65,7 @@
   md-limit="vm.query.limit"
   md-limit-options="[5, 10, 20]"
   md-page="vm.query.page"
-  md-total="{{vm.contrato.length}}">
+  md-total="{{vm.contratos.length}}">
 
 </md-table-pagination>
  </div>

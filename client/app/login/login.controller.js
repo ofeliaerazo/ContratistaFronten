@@ -2,15 +2,16 @@
 (function(){
 
 class LoginComponent {
-  constructor(AuthService) {
-    this.AuthService = AuthService;
+  constructor(authService) {
+    this.authService = authService;
   }
   login(){
-  	this.AuthService.login(this.user);
+    console.log('DATOS DE LOGIN ',this.user);
+  	this.authService.login(this.user);
   }
 }
 
-LoginComponent.$inject = ['AuthService'];
+LoginComponent.$inject = ['authService'];
 
 angular.module('contratista2017App')
   .component('login', {

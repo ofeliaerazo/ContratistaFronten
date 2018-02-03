@@ -13,9 +13,11 @@ angular.module('contratista2017App', [
      'ngImgCrop',
      'ngFileSaver',
      'ngMaterial',
-     'LocalStorageModule',
+     'LocalStorageModule',//bower install angular-local-storage --save
+
      'md.data.table',//libreria para ui-view-interfaz administrador
      'ngFileUpload'
+     //'ngPassword'//bower install angular-password...cambiar contraseña.newcontraseña.
 
 ])
   .constant("API", "http://localhost:8080/Contratista2017")
@@ -26,7 +28,23 @@ angular.module('contratista2017App', [
     $authProvider.tokenName = "token";
     $authProvider.tokenPrefix = "Contratista2017";
   })
-  //config local store. Seguridad Url
+
+   //Configuracion de temas de angular material
+  .config(function($mdThemingProvider){
+    $mdThemingProvider.theme('default')
+    .primaryPalette('blue')
+    .accentPalette('red')
+    .backgroundPalette('grey');
+  })
+
+  //Configuracion para insertar iconos fontawesome mediante md-font-icon
+  .config(function($mdIconProvider){
+      $mdIconProvider
+          .defaultFontSet('FontAwesome')
+          .fontSet('fa', 'FontAwesome');
+  })
+
+  //config para angular localStore. Seguridad Url
   .config(function(localStorageServiceProvider) {
     localStorageServiceProvider
       .setPrefix('LSContratista2017')
