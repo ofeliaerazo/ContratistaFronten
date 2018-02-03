@@ -1,9 +1,14 @@
+/*
+* Auth Service es el Service que gestiona el proceso de
+* Longin de la aplicacion
+*/
 'use strict';
 
-function authService($auth, $state, localStorageService, $mdDialog) {
+function AuthService($auth, $state, localStorageService, $mdDialog) {
 	// AngularJS will instantiate a singleton by calling "new" on this function
-	
-  var Auth = {
+	//auth:depedencia del login que viene de satellizer.
+
+  var Auth = { 		//auth:depedencia del login que viene de satellizer.
 		login: login,
 		logout: logout,
 		isAdmin: isAdmin,
@@ -59,10 +64,11 @@ function authService($auth, $state, localStorageService, $mdDialog) {
 	}*/
 
 	function logout() {
-		if ($auth.isAuthenticated()) {
+		if (Auth.isAuthenticated()) {
 			$auth.logout()
 				.then(response => {
 					$state.go('main');
+					console.log("salida ok")
 				})
 		}
 	}
@@ -132,36 +138,10 @@ function authService($auth, $state, localStorageService, $mdDialog) {
 
 	return Auth;
 }
-authService.$inject = ['$auth', '$state','localStorageService','$mdDialog'];
+AuthService.$inject = ['$auth', '$state','localStorageService','$mdDialog'];
 
 angular.module("contratista2017App")
-.factory("authService",authService);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.factory("AuthService",AuthService);
 
 
 

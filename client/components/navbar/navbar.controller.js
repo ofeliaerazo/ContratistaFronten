@@ -5,7 +5,7 @@ class NavbarController {
   constructor(AuthService){
 
       this.isCollapsed = true;
-      this.AuthService = AuthService; 
+      this.AuthService = AuthService; //igual que el factory de authService.
         
       this.menu = [{
         'title': 'Home',
