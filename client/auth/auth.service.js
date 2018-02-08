@@ -8,7 +8,7 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 	// AngularJS will instantiate a singleton by calling "new" on this function
 	//auth:depedencia del login que viene de satellizer.
 
-  var Auth = { 		//auth:depedencia del login que viene de satellizer.
+  var Auth = { 		
 		login: login,
 		logout: logout,
 		isAdmin: isAdmin,
@@ -20,7 +20,6 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 		getRoles: getRoles,
 		getIdUser: getIdUser
 	};
-
     function login(user, collback) {
         $auth.login(user)
             .then(response => {
@@ -46,7 +45,6 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
                 );
             });
     }
-
 	function getIdUser() {
 		if (Auth.isAuthenticated()) {
 			return $auth.getPayload().sub;
@@ -89,8 +87,8 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 
 	function isAdmin() {
 		if (Auth.isAuthenticated()) {
-			//console.log($auth.getPayload().roles);
-			if ($auth.getPayload().roles.indexOf("ADMIN") !== -1) {
+			console.log($auth.getPayload().roles);
+			if ($auth.getPayload().roles.indexOf("ADMINISTRADOR") !== -1) {
 				return true;
 			} else {
 				return false;
@@ -101,11 +99,9 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 			console.log("no esta");
 		}
 	}
-
 	function isUser() {
 		if (Auth.isAuthenticated()) {
-
-			if ($auth.getPayload().roles.indexOf("USER") !== -1) {
+			if ($auth.getPayload().roles.indexOf("CONTRATISTA") !== -1) {
 				return true;
 			} else {
 				return false;
@@ -114,7 +110,6 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 			return false;
 		}
 	}
-
 	function isOwner() {
 		if (Auth.isAuthenticated()) {
 
@@ -127,7 +122,6 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 			return false;
 		}
 	}
-
 	function isAuthenticated() {
 		if ($auth.isAuthenticated()) {
 			return true;
@@ -135,11 +129,9 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 			return false;
 		}
 	}
-
 	return Auth;
 }
 AuthService.$inject = ['$auth', '$state','localStorageService','$mdDialog'];
-
 angular.module("contratista2017App")
 .factory("AuthService",AuthService);
 

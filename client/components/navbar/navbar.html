@@ -19,16 +19,16 @@
                       <a ui-sref="{{item.state}}">{{item.title}}</a>
                   </li>
                   <!--li ui-sref-active="active"> <a ui-sref="usuarios-list">Usuarios</a></li-->
-                  <li > <a href="usuarios-list">Usuarios</a></li>
+                  <li > <a ui-sref="usuarios-list">Usuarios</a></li>
 
-                  <li > <a href="usuarios-create">Nuevo usuario</a></li>
+                  <li > <a href="usuarios-create" ng-if="vm.AuthService.isAdmin()">Nuevo usuario</a></li>
                   <!--li ng-if="vm.AuthService.isAdmin()"> <a ui-sref="usuarios-create" >Nuevo usuario</a></li-->
                   <!--li > <a ui-sref="login">Iniciar</a></li-->
                   <li > <a href="login">Iniciar</a></li>
                   <li> <a ng-click="vm.AuthService.logout()" href="#">Salir</a></li>
                 </ul>
               </div>
-              <!--div class="collapsed navbar-collapse  breadcrumb" id="navbar-1"> 
+              <!--div class="collapsed navbar-collapse  breadcrumb" id="navbar-1">
                 <ul class="nav navbar-nav">
                   <li class="breadcrumb-item"><a href="{{item.state}}">Home</a></li>
                   <li class="breadcrumb-item active"><a href="usuarios-list" >Usuarios</a></li>
@@ -36,20 +36,18 @@
                   </a>
                 </li>
                 <li class="breadcrumb-item active">Data</li>
-                </ul> 
+                </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <li>
                     <a ui-sref="login">Login</a></li>
-                </ul>           
+                </ul>
               </div-->
 
             </div>
-          
+
           </nav>
         </header>
-        
+
       </div>
      </div>
-   </div>     
-                
-        
+   </div>
