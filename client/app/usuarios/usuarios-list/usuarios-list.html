@@ -21,9 +21,10 @@
 
 <md-table-container>
   <table md-table class="table-bordered">
-    
+
        <thead md-head>
           <tr md-row>
+            <th md-column>id</th>
             <th md-column>NumeroDocumento</th>
             <th md-column>Nombre Completo</th>
             <th md-column> Sexo</th>
@@ -42,6 +43,7 @@
         </thead>
         <tbody md-body>
           <tr  md-row ng-repeat="item in vm.usuario | filter: vm.filtro | limitTo: vm.query.limit: (vm.query.page -1) * vm.query.limit">
+            <th md-cell >{{item.id}}</th>
             <th md-cell >{{item.numDocumento}}</th>
             <th md-cell >{{item.nombresCompletos}}</th>
             <th md-cell >{{item.sexo}}</th>
@@ -58,7 +60,7 @@
             <th><md-switch class="md-primary" md-no-ink aria-label="Switch No Ink" ng-model="data.cb5">
     Switch
   </md-switch></th>
-            <th md-cell ><a class="btn btn.primary" ui-sref="usuarios-update({idUsuarios:item.id})">Editar</a></th>
+            <th md-cell ><a class="btn btn.primary" ui-sref="usuarios-update({idUsuario:item.id})">Editar</a></th>
             <th></th>
           </tr>
 
