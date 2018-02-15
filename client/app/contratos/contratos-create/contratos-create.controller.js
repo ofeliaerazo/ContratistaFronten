@@ -2,14 +2,63 @@
 (function(){
 
 class ContratosCreateComponent {
-  constructor(contratosService, Upload, API) {
+  constructor(contratosService, tipoContratoService, objetoContratoService, crpService, usuariosService, Upload, API ) {
     this.contratosService = contratosService;
+    this.tipoContratoService = tipoContratoService;
+    this.objetoContratoService =  objetoContratoService;
+    this.crpService = crpService;
+    this.usuariosService= usuariosService;
     this.Upload = Upload;
     this.API = API;
   }
-  crearContrato(){
 
-    
+  $onInit(){
+    this.tipoContratoService.query().$promise
+                .then(response => {
+                    this.tiposContrato = response;
+                })
+                .catch(err => console.error(err));
+
+            this.objetoContratoService.query().$promise
+                .then(response => {
+                    this.objetoContrato = response;
+                    console.log(this.objetoContrato);
+                })
+                .catch(err => console.error(err));
+                this.crpService.query().$promise
+                    .then(response => {
+                        this.crp= response;
+                        console.log(this.crp);
+                    })
+                    .catch(err => console.error(err));
+
+                    this.usuariosService.query().$promise
+                        .then(response => {
+                            this.contratista = response;
+                            console.log(this.contratista);
+                        })
+                        .catch(err => console.error(err));
+
+                        this.usuariosService.query().$promise
+                            .then(response => {
+                                this.supervisor = response;
+                                console.log(this.superivisor);
+                            })
+                            .catch(err => console.error(err));
+
+
+        }
+  crearContrato(){
+    this.contratoService.save(this.contratos).$promise
+               .then(response => {
+                   console.log("Elcontrato se registrado correctamente ", response);
+                   this.$state.go('contratos-list');
+               })
+               .catch(err => {
+                   console.log("Error al crear el contrato ", err);
+               })
+
+
     this.Upload.upload({
         url: this.API + '/contratos/crearContrato',
         data:{

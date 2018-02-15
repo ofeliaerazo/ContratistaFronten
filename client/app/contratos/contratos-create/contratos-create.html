@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="">
-        <form name="form" ng-submit="vm.crearContrato(form)">
+        <form name="form" ng-submit="vm.crearContrato()">
           <md-table-container>
             <table md-table class="table-bordered">
 
@@ -55,19 +55,20 @@
                 </table>
               </nd-table-container>
 
+              <md-dialog-content>
+                  <label for="foto-imput">
+                      Subir contrato
+                  </label>
+                  <input type="file" class="button" ngf-select ng-model="vm.file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">
+                  <!--div class="button" ngf-select ng-model="vm.file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">Seleccionar Imágen</div-->
+              </md-dialog-content>
+
+              <section>
+                  <button type="submit">Subir Imágen</button>
+              </section>
 
 
 
-                             <md-dialog-content>
-                                 <label>
-                                     Seleccione un imágen
-                                 </label>
-                                 <input type="file" class="button" ngf-select ng-model="vm.file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">
-                                 <!--div class="button" ngf-select ng-model="vm.file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">Seleccionar Imágen</div-->
-                             </md-dialog-content>
-                             <section>
-                                 <button type="submit">Subir Imágen</button>
-                             </section>
 
         </form>
       </div>
