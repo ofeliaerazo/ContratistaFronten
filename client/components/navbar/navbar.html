@@ -19,9 +19,9 @@
                       <a ui-sref="{{item.state}}">{{item.title}}</a>
                   </li>
                   <!--li ui-sref-active="active"> <a ui-sref="usuarios-list">Usuarios</a></li-->
-                  <li > <a ui-sref="usuarios-list" ng-if="vm.AuthService.isAdmin()">Usuarios</a></li>
+                  <li > <a ui-sref="usuarios-list">Usuarios</a></li>
 
-                  <li > <a href="usuarios-create" ng-if="vm.AuthService.isAdmin()">Nuevo usuario</a></li>
+                  <li> <a href="usuarios-create"ng-if="vm.AuthService.isAdmin()">Nuevo usuario</a></li>
                   <!--li ng-if="vm.AuthService.isAdmin()"> <a ui-sref="usuarios-create" >Nuevo usuario</a></li-->
                   <!--li > <a ui-sref="login">Iniciar</a></li-->
                   <li > <a href="login">Iniciar</a></li>

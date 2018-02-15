@@ -16,7 +16,7 @@ class ContratosListComponent {
         page: 1
       };
     }
-  
+
   $onInit(){
     this.contratosService.query().$promise
     .then(response =>{
@@ -29,6 +29,7 @@ class ContratosListComponent {
 
 
   }
+
 }
 
 angular.module('contratista2017App')
@@ -39,5 +40,3 @@ angular.module('contratista2017App')
   });
 
 })();
-
-
