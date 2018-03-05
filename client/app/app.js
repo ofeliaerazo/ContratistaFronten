@@ -20,13 +20,14 @@ angular.module('contratista2017App', [
 
 ])  // .constant("API", "http://192.168.0.13:8080/Contratista2017")
   .constant("API", "http://localhost:8080/Contratista2017")
-  //config login
+  
+  //config login Satellizer
   .config(function($authProvider,API) {
     $authProvider.loginUrl = API+"/api/auth/login";
     $authProvider.tokenName = "token";
     $authProvider.tokenPrefix = "Contratista2017";
   })
-   //Configuracion de temas de angular material
+   //Configuracion de temas de angular materia
   .config(function($mdThemingProvider){
     $mdThemingProvider.theme('default')
     .primaryPalette('blue')

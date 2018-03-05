@@ -1,11 +1,28 @@
-<h2>Login</h2>
-
-<form name="loginForm" ng-submit="vm.login()">
+<div class="container">
+	<h2 style="font-family:'Microsoft JhengHei UI Light'; font-weight: bold">BIENVENIDO AL LOGIN</h2>
 	
-	<label for="">Email</label>
-	<input type="text" ng-model="vm.user.emailInstitucional">
-	<label for="">Password</label>
-	<input type="text" ng-model="vm.user.password">
+	<div class="row">
 
-	<button type="submit">Iniciar</button>
-</form>
+		<div class="col-md-6
+			<form class="userForm" name="loginForm" ng-submit="vm.login()">
+
+				<label for="">Email</label>
+				<div class="form-group">
+				<input type="text" ng-model="vm.usuarioss.emailInstitucional" class="form-control" placeholder="Correo" autofocus required>
+			</div>
+
+				
+
+				<label for="">Password</label>
+				<div class="form-group">
+				<input type="text" class="form-control" ng-model="vm.user.password" placeholder="Contraseña" required>
+			</div>
+
+				<button type="submit" class="btn btn-success">Iniciar</button>
+			</form>			
+		</div>
+	</div>
+</div>
+
+
+

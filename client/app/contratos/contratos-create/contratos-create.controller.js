@@ -42,7 +42,7 @@ class ContratosCreateComponent {
                         this.usuariosService.query().$promise
                             .then(response => {
                                 this.supervisor = response;
-                                console.log(this.superivisor);
+                                console.log(this.supervisor);
                             })
                             .catch(err => console.error(err));
 

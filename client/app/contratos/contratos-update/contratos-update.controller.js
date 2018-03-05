@@ -17,17 +17,13 @@ class ContratosUpdateComponent {
 
       }
       // inicio funcion para la imagen en tipo blob
-imageLoad($fileContent) {
-      this.image = $fileContent;
-      $("#ModalFoto").modal();
-  }
+//imageLoad($fileContent) {
+      //this.image = $fileContent;
+      //$("#ModalFoto").modal();
+  //}
 // fin funcion para la imagen en tipo blob
 
-mostrarModal(){
-
-
-
-}
+//mostrarModal(){}
 
   updateContrato() {
     console.log(this.contrato);

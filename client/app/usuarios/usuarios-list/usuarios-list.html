@@ -38,9 +38,12 @@
             <th md-column>eps</th>
             <th md-column>pension</th>
             <th md-column>ARL</th>
+            
             <th md-column>acción</th>
+
           </tr>
         </thead>
+
         <tbody md-body>
           <tr  md-row ng-repeat="item in vm.usuario | filter: vm.filtro | limitTo: vm.query.limit: (vm.query.page -1) * vm.query.limit">
             <th md-cell >{{item.id}}</th>
@@ -57,11 +60,14 @@
             <th md-cell >{{item.epsId.nombre}}</th>
             <th md-cell >{{item.pensionId.nombre}}</th>
             <th md-cell >{{item.arlId.id}}</th>
-            <th><md-switch class="md-primary" md-no-ink aria-label="Switch No Ink" ng-model="data.cb5">
-    Switch
-  </md-switch></th>
+            
+            <th>
+              <md-switch class="md-primary" ng-model="item.activo" aria-label="Switch No Ink" ng-change="vm.cambioEstado(item)">
+              </md-switch>
+            </th>
+
             <th md-cell ><a class="btn btn.primary" ui-sref="usuarios-update({idUsuario:item.id})">Editar</a></th>
-            <th></th>
+            <th md-cell ><a class="btn btn.primary" ui-sref="contratos-list({idContrato:item.id})">VerContrato</a></th>
           </tr>
 
         </tbody>

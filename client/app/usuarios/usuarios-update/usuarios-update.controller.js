@@ -53,7 +53,7 @@ class UsuariosUpdateComponent {
   }
   actualizarUsuario(){
   this.usuariosService.update({id:this.usuario.id},this.usuario).$promise
-  .then(response=>{console.log('usuario ok',response);
+  .then(response=>{
   console.log('Usuario Actualizado')
   this.$state.go('usuarios-list');
   })

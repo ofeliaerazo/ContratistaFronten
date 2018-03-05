@@ -15,7 +15,6 @@ class NavbarController {
   }
 
 
-
 }
 
 NavbarController.$inject = ['AuthService']

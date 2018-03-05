@@ -5,6 +5,7 @@ angular.module('contratista2017App')
     $stateProvider
       .state('contratos-create', {
         url: '/contratos-create',
+        parent:'admin',
         template: '<contratos-create></contratos-create>'
       });
   });

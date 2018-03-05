@@ -10,7 +10,7 @@ class AdminComponent {
 angular.module('contratista2017App')
   .component('admin', {
     templateUrl: 'app/admin/admin.html',
-    controller: AdminComponent, 
+    controller: AdminComponent,
     controllerAs: 'vm'//'adminCtrl'
   });
 

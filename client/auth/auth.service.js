@@ -13,21 +13,19 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 		logout: logout,
 		isAdmin: isAdmin,
 		isUser: isUser,
-		isOwner: isOwner,
 		isAuthenticated: isAuthenticated,
-		userlog: userlog,
+		//userlog: userlog,
 		//alluser: alluser,
-		getRoles: getRoles,
-		getIdUser: getIdUser
+		//getRoles: getRoles,
+		//getIdUser: getIdUser
 	};
     function login(user, collback) {
         $auth.login(user)
             .then(response => {
                 console.log('Login ok', response);
-                localStorageService.set("profilePicture", $auth.getPayload().imagen)
-                console.log('se cargo la imagen', localStorageService.get("profilePicture"));
-                if (Auth.isOwner() || Auth.isAdmin()) {
-                    $state.go('core-institution.notifications-list');
+                console.log(Auth.isAdmin());
+                if (Auth.isAdmin()) {
+                    $state.go('admin');
                 } else {
                     $state.go('main');
                 }
@@ -44,8 +42,8 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
                     .ok('Cerrar')
                 );
             });
-    }
-	function getIdUser() {
+    };
+	/*function getIdUser() {
 		if (Auth.isAuthenticated()) {
 			return $auth.getPayload().sub;
 		} else {
@@ -54,7 +52,7 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 	}
 
 	/*function alluser() {
-		if ((Auth.isAdmin()) || (Auth.isUser())) {
+		if (($auth.isAdmin()) || ($auth.isUser())) {
 			return true;
 		} else {
 			return false;
@@ -71,23 +69,23 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 		}
 	}
 
-	function userlog() {
-		if (Auth.isAuthenticated()) {
+	/*function userlog() {
+		if ($auth.isAuthenticated()) {
 			return $auth.getPayload().user;
 		}
 	}
 
 	function getRoles() {
-		if (Auth.isAuthenticated()) {
+		if ($auth.isAuthenticated()) {
 			return $auth.getPayload().roles;
 		}else{
 			return false;
 		}
-	}
+	}*/
 
 	function isAdmin() {
 		if (Auth.isAuthenticated()) {
-			console.log($auth.getPayload().roles);
+			console.log("roles"$auth.getPayload().roles);
 			if ($auth.getPayload().roles.indexOf("ADMINISTRADOR") !== -1) {
 				return true;
 			} else {
@@ -110,7 +108,7 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 			return false;
 		}
 	}
-	function isOwner() {
+	/*function isOwner() {
 		if (Auth.isAuthenticated()) {
 
 			if ($auth.getPayload().roles.indexOf("OWNER") !== -1) {
@@ -121,7 +119,7 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 		} else {
 			return false;
 		}
-	}
+	}*/
 	function isAuthenticated() {
 		if ($auth.isAuthenticated()) {
 			return true;
@@ -131,7 +129,6 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 	}
 	return Auth;
 }
-AuthService.$inject = ['$auth', '$state','localStorageService','$mdDialog'];
 angular.module("contratista2017App")
 .factory("AuthService",AuthService);
 
