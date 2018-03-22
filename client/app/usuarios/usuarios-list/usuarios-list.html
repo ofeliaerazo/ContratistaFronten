@@ -1,20 +1,23 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
     <form class="form-inline">
+      
       <div layout-gt-xs="row" layout-sm="column" layout-align="center center" layout-wrap>
         <span flex></span>
-        <md-button type="button" ng-click="vm.clearQuery()" class="md-raised md-primary md-hue-2" title="Limpiar filtros" aria-label="Limpiar filtro">
+        
+        <!--md-button type="button" ng-click="vm.clearQuery()" class="md-raised md-primary md-hue-2" title="Limpiar filtros" aria-label="Limpiar filtro">
           <i class="fa fa-eraser" aria-hidden="true"></i>
           Limpiar Filtros
         </md-button>
         <md-button type="button" ng-click="vm.exportExcel()" class="md-raised md-primary md-hue-2" title="Exportar Excel" aria-label="Exportar Excel">
           <i class="fa fa-file-excel-o" aria-hidden="true"></i>
           Usuarios
-        </md-button>
+        </md-button-->
       </div>
+
     </form>
     <h3 class="panel-tittle">Filtrar</h3>
-    <input type="text" class="form-control" ng-model="vm.filtro"name="" value="" ng-change="vm.filtrar()">
+    <input type="text" class="form-control" ng-model="vm.filtro" name="" value="" ng-change="vm.filtrar()">
   </div>
 
 <!-- MD DATA TABLE -->
@@ -67,7 +70,8 @@
             </th>
 
             <th md-cell ><a class="btn btn.primary" ui-sref="usuarios-update({idUsuario:item.id})">Editar</a></th>
-            <th md-cell ><a class="btn btn.primary" ui-sref="contratos-list({idContrato:item.id})">VerContrato</a></th>
+            <th md-cell ><a class="btn btn.primary" ng-click = "vm.openUpload(item)">Subir contrato</a></th>
+            <th md-cell ><a class="btn btn.primary" ng-click = "vm.verContrato(item.id)">VerContrato</a></th>
           </tr>
 
         </tbody>
@@ -76,7 +80,9 @@
     </nd-table-container>
 
   </div>
-</div>
+
+
+
 <a ui-sref="usuarios-create">Nuevo usuario</a>
 <md-table-pagination
   md-limit="vm.query.limit"
@@ -93,6 +99,60 @@
 
 <upload-file></upload-file>
 
+<!-- Modal para mostrar el contrato -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="width: 100%">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+      </div>
+      <div class="modal-body">
+        <iframe src="{{vm.getUrlFile()}}" ng-if = "vm.file" width="100%" height="800px"></iframe>
+        <h3 ng-hide = "vm.file">El usuario no tiene contrato</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal para subir un contrato -->
+
+<div class="modal fade" id="uploadContrato" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="width: 100%">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Subir contrato</h4>
+      </div>
+      <div class="modal-body text-center">
+        <h2>{{vm.usuarioContrato.nombresCompletos}}</h2>
+        <div class="form-group">
+          <label for="">Valor Contrato</label>
+          <input class="form-control" type="text" ng-model= "vm.valorContrato">
+        </div>
+        <div class="form-group">
+          <label for="">Numero Contrato</label>
+          <input class="form-control" type="text" ng-model= "vm.numeroContrato">
+        </div>
+        <div> 
+            <input type="file" class="button" ngf-select ng-model="vm.file" name="file" ngf-pattern="'.pdf'" ngf-accept="'.pdf'" ngf-max-size="20MB" >
+        </div>
+        <div> 
+            <div>{{vm.errMessage}}</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" ng-disabled="!vm.valorContrato || !vm.numeroContrato || !vm.file" ng-click  = "vm.create()">Subir contrato</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- section>
   <div class="panel panel-primary">

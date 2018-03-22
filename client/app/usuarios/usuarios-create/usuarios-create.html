@@ -15,7 +15,7 @@
         </div>
         <div class="form-group">
           <label for="">Contraseña</label>
-          <input type="text" ng-model= "vm.usuario.password">
+          <input type="password" ng-model= "vm.usuario.password">
         </div>
         <div class="form-group">
           <label for="">Nombres Completos</label>
@@ -23,11 +23,15 @@
         </div>
         <div class="form-group">
           <label for="">Genero</label>
-          <input type="text" ng-model= "vm.usuario.sexo">
+          <select class="form-control" ng-model= "vm.usuario.sexo">
+            <option ng-repeat = "item in [{}, {text:'Masculino', value:'M'}, {text:'Femenino', value:'F'}]" ng-value="item.value">
+              {{item.text}}
+            </option>
+          </select>
         </div>
         <div class="form-group">
           <label for="">Fecha de Nacimiento</label>
-          <input type="text" ng-model= "vm.usuario.fechaNacimiento">
+          <md-datepicker ng-model= "vm.usuario.fechaNacimiento" md-placeholder="Enter date"></md-datepicker>
         </div>
         <div class="form-group">
           <label for="">Direccion</label>
@@ -72,10 +76,6 @@
           <select class="form-control" ng-model="vm.usuario.arlId.id" >
             <option ng-value="item.id" ng-repeat = "item in vm.arl">{{item.codigo}} </option>
           </select>
-        </div>
-        <div class="form-group">
-          <label for="">Activo</label>
-          <input type="text" ng-model= "vm.usuario.activo">
         </div>
         <div class="">
         <button type="button" name="button"  ng-click="vm.crearUsuario()">crear</button>

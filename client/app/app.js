@@ -50,4 +50,9 @@ angular.module('contratista2017App', [
   .config(function($urlRouterProvider, $locationProvider) {
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
-  });
+  })
+  .config(['$httpProvider', function($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    }
+]);
