@@ -20,10 +20,12 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 		//getIdUser: getIdUser
 	};
     function login(user, collback) {
-        $auth.login(user)
+    	var promesa = new Promise((resolve, rejected) => {
+    		$auth.login(user)
             .then(response => {
                 console.log('Login ok', response);
                 console.log(Auth.isAdmin());
+                resolve(response);
                 if (Auth.isAdmin()) {
                     $state.go('admin');
                 } else {
@@ -31,8 +33,9 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
                 }
             })
             .catch(err => {
+            	rejected(err.data);
                 console.log('Error de login', err);
-                $mdDialog.show(
+                /*$mdDialog.show(
                     $mdDialog.alert()
                     .parent(angular.element(document.querySelector('#popupContainer')))
                     .clickOutsideToClose(true)
@@ -40,9 +43,11 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
                     .textContent('Verifica si los datos ingresados son correctos.')
                     .ariaLabel('Alert Dialog Demo')
                     .ok('Cerrar')
-                );
+                );*/
             });
-    };
+    	})
+        return promesa;
+    }
 	/*function getIdUser() {
 		if (Auth.isAuthenticated()) {
 			return $auth.getPayload().sub;
@@ -85,7 +90,7 @@ function AuthService($auth, $state, localStorageService, $mdDialog) {
 
 	function isAdmin() {
 		if (Auth.isAuthenticated()) {
-			console.log("roles"$auth.getPayload().roles);
+			console.log($auth.getPayload().roles);
 			if ($auth.getPayload().roles.indexOf("ADMINISTRADOR") !== -1) {
 				return true;
 			} else {

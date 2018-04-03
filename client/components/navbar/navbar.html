@@ -22,12 +22,12 @@
                   
                   <!--li > <a ui-sref="usuarios-list">Usuarios</a></li-->
 
-                  <li> <a href="usuarios-create"ng-if="vm.AuthService.isAdmin()">Nuevo ...usuario</a></li>
+                  <li> <a ui-sref="usuarios-create" >Nuevo ...usuario</a></li>
                  
                   <!--li ng-if="vm.AuthService.isAdmin()"> <a ui-sref="usuarios-create" >Nuevo usuario</a></li-->
                   <!--li > <a ui-sref="login">Iniciar</a></li-->
-                  <li > <a href="login">Iniciar</a></li>
-                  <li> <a ng-click="vm.AuthService.logout()" href="#">Salir</a></li>
+                  <li ng-if = "!vm.AuthService.isAuthenticated()"> <a href="login">Iniciar</a></li>
+                  <li ng-if = "vm.AuthService.isAuthenticated()"> <a ng-click="vm.AuthService.logout()" href="#">Salir</a></li>
                 </ul>
               </div>
               <!--div class="collapsed navbar-collapse  breadcrumb" id="navbar-1">

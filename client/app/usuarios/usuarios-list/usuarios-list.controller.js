@@ -1,7 +1,7 @@
 'use strict';
 (function() {
   class UsuariosListComponent {
-    constructor(usuariosService, $state, tipoDocumentoService, FileSaver) {
+    constructor(usuariosService, $state, tipoDocumentoService, FileSaver, contratosService, $sce, API, Upload) {
       this.usuariosService = usuariosService;
       //this.NavegateParams = NavegateParams;
       this.tipoDocumentoService = tipoDocumentoService;
@@ -9,9 +9,13 @@
       this.user = {};
       this.$state = $state;
       this.FileSaver = FileSaver;
+      this.contratosService = contratosService;
       this.query = {
         limit: 5,
         page: 1    };
+        this.$sce = $sce;
+        this.API = API;
+        this.Upload = Upload;
     }
     $onInit() {
       this.usuariosService.query().$promise
@@ -21,6 +25,13 @@
         })
         .catch(err => {
           console.log('error', err)
+        })
+
+        $('#uploadContrato').on('hidden.bs.modal', () => {
+            this.file = undefined;
+            this.valorContrato = undefined;
+            this.numeroContrato = undefined;
+            this.errMessage = undefined;
         })
     }
     goUpdateUser(idUser) {
@@ -43,6 +54,54 @@
           this.user={};
           this.getAllUsuarios();
         }
+
+        verContrato(id){
+          this.queryParams = {idUser: id};
+          this.contratosService.find(this.queryParams).$promise
+            .then(res => {
+                if(res.archivoAdjunto.split(".").length > 1)
+                  this.file = res.archivoAdjunto;
+                else
+                  this.file = undefined;
+              console.log('Nuevo archivo ', res, 'con este id ', id);
+              console.log(res.archivoAdjunto.split("."));
+              $('#exampleModal').modal('show');
+            })
+          console.log('Id del usuario a ver el contrato', id);
+        }
+
+        getUrlFile(){
+          return this.$sce.trustAsResourceUrl('../../../assets/contratos/'+this.file);
+        }
+
+        openUpload(item){
+          this.usuarioContrato = item;
+          $('#uploadContrato').modal('show');
+        }
+
+        create(from) {
+            this.Upload.upload({
+                url: this.API + '/api/contratos/crearContrato',
+                data: {
+                  file: this.file,
+                  idUser: this.usuarioContrato.id,
+                  numeroContrato: this.numeroContrato,
+                  valorContrato: this.valorContrato
+                }
+            }).then((resp) => {
+                console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+                console.log('OK');
+                $('#uploadContrato').modal('hide');
+            }, (resp) => {
+                  console.log(resp);
+                this.errMessage = "Error al subir el contrato";
+            }, (evt) => {
+                var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+
+            });
+        }
+
 }
   angular.module('contratista2017App')
     .component('usuariosList', {

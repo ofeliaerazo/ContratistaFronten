@@ -7,6 +7,10 @@ function contratosService($resource, API) {
   },{
     update:{
       method:'PUT'
+    },
+    find:{
+    	url: API + '/api/contratos/find',
+    	method:'GET'
     }
   })
 }

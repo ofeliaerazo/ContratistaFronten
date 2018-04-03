@@ -3,21 +3,21 @@
 	
 	<div class="row">
 
-		<div class="col-md-6
+		<div class="col-md-6">
 			<form class="userForm" name="loginForm" ng-submit="vm.login()">
 
 				<label for="">Email</label>
 				<div class="form-group">
-				<input type="text" ng-model="vm.usuarioss.emailInstitucional" class="form-control" placeholder="Correo" autofocus required>
+				<input type="text" ng-model="vm.user.emailInstitucional" class="form-control" placeholder="Correo" autofocus required>
 			</div>
 
 				
 
 				<label for="">Password</label>
 				<div class="form-group">
-				<input type="text" class="form-control" ng-model="vm.user.password" placeholder="Contraseña" required>
+				<input type="password" class="form-control" ng-model="vm.user.password" placeholder="Contraseña" required>
 			</div>
-
+				<div class="alert alert-danger" role="alert"  ng-if = "vm.err">{{vm.err}}</div>
 				<button type="submit" class="btn btn-success">Iniciar</button>
 			</form>			
 		</div>
